@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const app= express();
 const cors = require('cors');
+require("dotenv")
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -15,7 +16,7 @@ const getTimeTableRoute = require("./routes/getTimeTableRoute");
 app.use("/getTimeTable", getTimeTableRoute);
 
 
-const PORT=8080;
+const PORT=process.env.PORT;
 app.listen(PORT,()=>{
     console.log(`The server is running in ${PORT}`);
 })
